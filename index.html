@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f3ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>2年公共 二学期後半 授業プリント暗記</title>
+<style>
+:root{
+  --bg:#f6f3ec; --sf:#fff; --tx:#232323; --mt:#7c7568; --ln:#e2dccf;
+  --ac:#2f5d8a; --ac2:#eaf1f8; --red:#b3261e; --redbg:#ffeceb;
+  --ok:#2e7d4f; --okbg:#e8f5ec; --wa:#a4680f; --wabg:#fdf3e3;
+  --blue:#1b56b0; --pencil:#4a4a4a;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#15181b; --sf:#1f2429; --tx:#e9e9e9; --mt:#9aa0a6; --ln:#333a42;
+    --ac:#7fb0e0; --ac2:#22303d; --red:#ff8f84; --redbg:#3a2320;
+    --ok:#6cc08b; --okbg:#1e3327; --wa:#e2b25a; --wabg:#332b1c;
+    --blue:#8fb8ea; --pencil:#c3c3c3;
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--tx);
+  font:16px/1.75 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
+  padding-bottom:calc(28px + env(safe-area-inset-bottom));
+}
+header{
+  position:sticky;top:0;z-index:20;background:var(--bg);
+  padding:calc(8px + env(safe-area-inset-top)) 12px 0;
+  border-bottom:1px solid var(--ln);
+}
+h1{font-size:15px;margin:0 0 8px;font-weight:700;letter-spacing:.01em;display:flex;align-items:center;gap:6px}
+h1 .dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
+.tabs{display:flex;gap:6px;margin-bottom:8px}
+.tabs button{
+  flex:1;padding:10px 4px;font-size:14px;font-weight:600;border-radius:10px;
+  border:1px solid var(--ln);background:var(--sf);color:var(--tx);
+}
+.tabs button.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.units{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.units::-webkit-scrollbar{display:none}
+.units button{
+  flex:none;padding:7px 12px;font-size:13px;border-radius:99px;
+  border:1px solid var(--ln);background:var(--sf);color:var(--tx);white-space:nowrap;
+}
+.units button.on{background:var(--ac2);border-color:var(--ac);color:var(--ac);font-weight:700}
+main{padding:12px 12px 0;max-width:720px;margin:0 auto}
+.toolbar{display:flex;gap:6px;margin-bottom:12px}
+.toolbar button{
+  flex:1;padding:10px 4px;font-size:12.5px;font-weight:600;border-radius:10px;
+  border:1px solid var(--ln);background:var(--sf);color:var(--tx);
+}
+.toolbar button.on{background:var(--ac2);border-color:var(--ac);color:var(--ac)}
+.toolbar button:active{transform:scale(.98)}
+
+.print{margin-bottom:26px}
+.print > h2{
+  font-size:13px;color:var(--mt);font-weight:700;margin:0 0 10px;
+  padding:6px 10px;background:var(--ac2);border-radius:8px;color:var(--ac);
+  position:sticky;top:calc(96px + env(safe-area-inset-top));z-index:5;
+}
+.sec{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:14px 14px 6px;margin-bottom:12px}
+.sec h3{
+  font-size:15px;margin:2px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--ac2);color:var(--ac);
+}
+.sec h4{font-size:14.5px;margin:14px 0 4px;color:var(--ac);font-weight:700}
+p.ln{margin:0 0 10px;line-height:1.9;font-size:15.5px}
+p.ln.quote{padding-left:10px;border-left:3px solid var(--ln);color:var(--tx)}
+p.ln.small{font-size:13.5px;color:var(--mt);margin-bottom:8px}
+p.ln.big{font-size:16px;font-weight:700}
+ul.ln{margin:0 0 10px;padding-left:1.2em;font-size:15.5px;line-height:1.9}
+ul.ln li{margin-bottom:3px}
+hr.sep{border:0;border-top:1px dashed var(--ln);margin:10px 0 12px}
+
+/* 穴埋め */
+.bl{
+  cursor:pointer;border-radius:4px;padding:0 3px;transition:background .12s;
+  border-bottom:1.5px dashed #cbb3b0;background:#fdf7f6;color:var(--mt);
+  display:inline;
+}
+.bl .lb{font-size:.72em;vertical-align:super;letter-spacing:0}
+.bl.o{
+  background:var(--redbg);color:var(--red);border-bottom:1.5px solid var(--red);
+  font-weight:700;color:var(--red);
+}
+.bl.o .lb{opacity:.65;margin-right:2px}
+.note{font-size:13px;line-height:1.65;border-radius:6px;padding:1px 5px;display:inline;margin-left:4px}
+.n-blue{color:var(--blue);background:color-mix(in srgb,var(--blue) 8%,transparent)}
+.n-pen{color:var(--pencil);background:color-mix(in srgb,var(--pencil) 8%,transparent);font-style:italic}
+.n-red{color:var(--red);background:var(--redbg)}
+.note.br{display:block;margin:2px 0 8px}
+
+/* クイズ */
+.qbar{margin-bottom:12px}
+.qbar .top{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mt);margin-bottom:6px}
+.pg{height:9px;border-radius:99px;background:var(--ln);overflow:hidden}
+.pg i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+.chips{display:flex;gap:6px;margin:10px 0 12px}
+.chips button{flex:1;padding:8px;font-size:13px;border-radius:9px;border:1px solid var(--ln);background:var(--sf);color:var(--tx)}
+.chips button.on{background:var(--ac);border-color:var(--ac);color:#fff;font-weight:700}
+.card{
+  background:var(--sf);border:1px solid var(--ln);border-radius:18px;
+  padding:20px 16px;min-height:230px;display:flex;flex-direction:column;justify-content:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.04);cursor:pointer;
+}
+.card .tag{font-size:11.5px;color:var(--mt);margin-bottom:10px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.card .tag b{font-weight:700;color:var(--ac)}
+.card .q{font-size:16.5px;line-height:1.9;font-weight:600}
+.card .q .ctx{font-weight:400;color:var(--mt);font-size:14px}
+.card .a{
+  margin-top:16px;padding-top:14px;border-top:1px dashed var(--ln);
+  color:var(--red);font-size:16px;line-height:1.85;font-weight:600;
+}
+.card .hint{font-size:12px;color:var(--mt);margin-top:16px;text-align:center}
+.answerBtns{display:flex;gap:8px;margin-top:12px}
+.answerBtns button{flex:1;padding:14px 6px;border-radius:12px;font-size:15px;font-weight:700;border:1px solid}
+.answerBtns .good{background:var(--okbg);color:var(--ok);border-color:var(--ok)}
+.answerBtns .bad{background:var(--wabg);color:var(--wa);border-color:var(--wa)}
+.navBtns{display:flex;gap:8px;margin-top:10px}
+.navBtns button{flex:1;padding:11px;font-size:13.5px;border-radius:10px;border:1px solid var(--ln);background:var(--sf);color:var(--tx)}
+.navBtns button:disabled{opacity:.4}
+.done{text-align:center;padding:24px 8px;color:var(--mt);font-size:14.5px;line-height:1.9}
+.empty{text-align:center;padding:30px 10px;color:var(--mt);font-size:14px;line-height:1.9}
+footer{max-width:720px;margin:0 auto;padding:8px 12px 20px;color:var(--mt);font-size:12px;line-height:1.7;text-align:center}
+.reset{background:none;border:0;color:var(--mt);text-decoration:underline;font-size:12px;padding:6px}
+.toast{
+  position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);
+  background:#333;color:#fff;font-size:13px;padding:9px 16px;border-radius:99px;opacity:0;
+  transition:.25s;pointer-events:none;z-index:50;
+}
+.toast.show{opacity:.94;transform:translateX(-50%) translateY(0)}
+@media(prefers-color-scheme:dark){.toast{background:#e9e9e9;color:#1a1a1a}}
+</style>
+</head>
+<body>
+<header>
+  <h1><span class="dot"></span>2年公共 二学期後半 授業プリント暗記</h1>
+  <div class="tabs">
+    <button id="tabFill" class="on">穴埋め（赤シート）</button>
+    <button id="tabQuiz">一問一答クイズ</button>
+  </div>
+  <div class="units" id="units"></div>
+</header>
+<main id="main"></main>
+<footer>
+  授業プリント5枚（①〜⑤）の内容をそのまま収録しています。<br>
+  青・黒・赤の手書きメモも原文どおりに載せています。／ 進捗はこの端末に保存
+  <br><button class="reset" id="resetBtn">学習記録をリセット</button>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ データ（プリント原文） ============
+   [[ラベル|答え]] = 空欄
+   <<青|メモ>> <<黒|メモ>> <<赤|メモ>> = 手書きメモ
+*/
+const PRINTS = [
+{
+  id:"p1", no:"①", short:"政治とは何か", title:"政治とは何か〜権力分立の原則",
+  body:`
+# 政治とは何か
+個人や団体の[[あ|利害の対立の調整]]→人々の[[い|権利]]の実現をはかる
+そのために国家
+<<青|国家の3要素）領土・国民・主権　←対外的な独立性>>
+そのために必要なものは何か→[[う|一定のルール化]]
+<<青|法律・道徳・常識・習慣>>
+法律と他のものとの違い[[え|強制力]]あるかないか
+＊法の[[お|不知]]は許さず
+<<青|罪を起こして法律を知らなくても許してはいけない>>
+憲法は国の[[か|基本]]法であり、[[き|最高法規]]　である。
+日本国憲法の3原則〈[[く|国民主権・基本的人権の尊重・平和主義]]〉
+# 3原則はどこから来たか
+レ　ヨーロッパ
+<<青|国王の権力は神によって授けられた（王権神授説）>>
+<<青|人間は生まれながらに平等>>
+# 近代民主政治の基本原理の成立
+16世紀頃　ヨーロッパ　　国王を頂点とした身分制社会→[[け|絶対王政]]（[[こ|王権神授説]]）に基づく
+17世紀　　身分制社会を否定する考え方→[[さ|社会契約]]説が影響
+<<青|ホッブズ・ルソー・ロックの3人>>
+1642〜49年　ピューリタン革命、1688年　名誉革命、
+18世紀　　1775年〜83年　アメリカ独立革命　　1789年〜99年　フランス革命
+＊これら[[し|市民]]革命を通して近代民主政治の基本原理が成立
+# 近代民主政治の基本原理
+基本的人権の保障→個人の自由、平等　　自然権（[[す|人間が生まれながらに持っている権利]]）
+人民主権の原則→「すべての政治権力は人民に存し、したがって人民に由来する」
+<<青|バージニアの権利章典>>
+権力分立の原則→政治権力を特定の人（機関）に集中させない
+ロック→立法権、[[せ|執行]]権
+モンテスキュー→三権分立、著書（[[そ|法の精神]]）
+`
+},
+{
+  id:"p2", no:"②", short:"社会契約説", title:"社会契約説 ホッブズ・ロック",
+  body:`
+# 社会契約説
+## ホッブズ
+国家権力の必要性を「自然権」「自然状態」「自然法」の言葉を使って説明
+<<青|自己保存・自己発展>>
+「自然権」各人が彼自身の自然つまりその生命を維持するために[[あ|彼自身の欲する]]ままにその力を用いる自由
+「自然状態」〈[[い|万人の万人に対する闘争]]〉
+人間は本来平等
+それゆえに不信
+不信から戦争が起こる
+「自然法」自然状態では自己保存、自己発展できない、安全も守られない
+平和を実現するためには　自然法に従って契約をむすぶ
+基本的な自然法　理性による一般法則
+<<青|各人は平和を勝ちとろう為に努力すべし>>
+第二の自然法　平和、自己防衛のため必要な場合（[[う|他人も同意するなら]]）自然権を放棄
+<<青|全ての人が共通に従う公共的権力が必要>>
+第三の自然法　結ばれた契約は遵守し履行すべし
+権利が保障されるためには主権者に（[[え|あらゆる力を譲り渡す]]）必要がある
+<<青|国家・主権者>>
+国家は本来（[[お|自然権を保障する]]）<<青|もの>>しかし絶対的性格
+## ロック
+ピューリタン革命⇒王政復古⇒名誉革命　　目まぐるしく変動するイギリス
+→これらを求める市民革命
+<<青|経済活動の自由／議会制民主主義>>
+ロックは経験論の立場
+自然権　人間は（[[か|自由平等]]）であり（[[き|支配服従]]）の関係に立つことなく自由な労働と占有によって（[[く|財産]]）を取得する権利を持つ
+自然状態　「すべての人々が自然法に従っている（[[け|調和的]]）な世界」
+人間は自由平等な存在⇒権力と支配権は互恵的
+<<青|他人より多くの人に服従はない>>
+自然法　「他人の生命、健康、自由、財産に対して損傷を加えてはならない」
+<<青|自然権を守る為>>
+しかし自然状態では自然権が確実に保障されるとは限らない
+`
+},
+{
+  id:"p3", no:"③", short:"ロック・ルソー", title:"ロック続き・ルソー",
+  body:`
+<<黒|なぜなら個人の私的な判断に任せてたら>>
+自然権の執行・・・
+そこで社会契約　人々は私的な制裁・権利を放棄
+<<青|契約によりそれを公の権力に信託する>>
+> 自然法の完全な実現
+<<青|相互に委託すれば／政治的社会としての国家が出現>>
+一切の政治権力は人民の（[[あ|信託]]）に基づく
+政治的支配の正当性⇒人民の（[[い|同意]]）が根拠
+☆ホッブズとの大きな違い
+（[[う|抵抗]]）権（[[え|革命]]）権
+政治社会の代表者の権力・・・・・・信託されたもの
+（[[お|無条件]]）ではない・・・もし人民の信託に反したら
+国民は　自身の安全の保障のために覆す権利
+<<青|自己達の意志に従って新しく権力を定める>>
+＊ロックの哲学（[[か|経験]]）論　（[[き|タブラ・ラサ]]）
+すべての観念や知識は経験から生じる
+近代科学の精神に通ずる
+## ルソー
+18世紀　　絶対王政（国王の専制政治）に対して自由平等を求めて市民台頭
+自然権
+<<青|素朴な自然人として生まれる権利／ありのままに>>
+自然状態・・・健康で自由で平等
+しかし実際は
+財産、評判、名誉など（[[く|私有意識]]）にとらわれ悲惨な支配隷従の関係
+自然状態の幸福と無邪気さを破壊している・・・・（[[け|文明状態]]）という
+そこで社会契約
+<<青|人間が本来の自然に立ち戻る為にどのように社会を作り直すか>>
+「人々が全員一致で自己の身体とあらゆる権利を（[[こ|一般意志]]）の最高の指揮にゆだねる」
+すべての人がひとしく全面的に自己を共同体に没入させる
+だから（[[さ|自己と共同体は一体]]）⇒共同体の意志に従う＝自分の意志に従う
+個人の利益の立場・・特殊意志　　その総和・・（[[し|全体意志]]）
+一般意志は絶対⇒
+<<青|人民の自らの意志→人民主権>>
+一般意志のもと「人は（[[す|自ら書き入れた法]]）に従う」
+一般意志は代表できない　　ルソーはイギリスの議会制民主主義を批判
+`
+},
+{
+  id:"p4", no:"④", short:"明治憲法", title:"日本の憲法 大日本帝国憲法",
+  body:`
+# 日本の憲法
+近代的、民主的意味では　大日本帝国憲法（明治憲法）　日本国憲法
+大日本帝国（明治）憲法→1889年　明治22年発布
+なぜこのとき？
+<<青|政府は憲法を制定しなくてはならない？>>
+憲法は（[[あ|権力者]]）を縛るものだから
+（[[い|明治維新]]）は市民革命とは違う⇒（[[う|将軍]]）から天皇へ権力者の交代
+# 明治憲法が制定された背景
+（[[え|自由民権]]）運動の盛り上がり・・（[[お|国会開設]]）（[[か|憲法制定]]）
+対外的に国家の形式を整えるため・・（[[き|不平等]]）条約の改正に必要
+<<青|国民の中に民主的な考え方が広がる前に／天皇中心の制度を確立しておく>>
+# 明治憲法の内容
+近代民主政治の基本原理から考える
+天皇主権の（[[く|欽定]]）憲法
+<<青|民定>>
+臣民の権利・・法律でいつでも制限（[[け|法律の留保]]）
+天皇に非常に大きな権限
+統治権
+<<青|立法：議会の協賛／行政：国務大臣の輔弼／司法：裁判所は天皇の名において>>
+天皇大権　統帥権　＊
+<<青|軍隊を直接指揮することが出来る権限>>
+明治憲法の評価は分かれる・・・・外見的に（[[こ|立憲]]）主義
+<<青|＊不完全ではあるが民主的内容を持っている>>
+明治憲法下　民主国家への道→→→→軍事国家へ　　なぜ
+（[[さ|大正デモクラシー]]）
+統帥権独立問題
+<<青|軍隊から直接命令されると軍機によって／政府はこれを止める事ができない>>
+`
+},
+{
+  id:"p5", no:"⑤", short:"日本国憲法", title:"ポツダム宣言の受諾・日本国憲法",
+  body:`
+# ポツダム宣言の受諾
+軍事的勢力の除去
+<<青|軍隊の解散／軍国主義の排除>>
+民主主義の復活と人権保障　　これらを受け入れて無条件降伏
+国民の意思もとづく平和な政府
+連合国軍総司令部（[[あ|GHQ]]）による憲法改正の指示
+政府（[[い|憲法問題調査]]）委員会→（[[う|松本]]）案
+<<青|＊天皇主権／国体護持>>
+GHQはこれを拒否→（[[え|マッカーサー]]）草案
+<<青|明治憲法に変わってくれた>>
+これをもとに日本政府案→議会で修正・可決→1946年11月3日公布　翌5月3日（[[お|施行]]）
+# 日本国憲法押しつけ論とは
+<<黒|松本案ではなくマッカーサー草案によっている／当時の国際情勢では拒否できない>>
+# 日本国憲法の3原則
+基本的人権の尊重
+国民主権　主権→＊
+<<青|自然権の考え方>>
+（[[か|象徴]]）天皇制　国政権不保持　（[[き|国事行為]]）のみ行う
+平和主義
+＊憲法改正　96条
+各議院の（[[く|総議員]]）の3分の2以上の賛成で（[[け|国会]]）が発議
+国民投票で過半数の賛成
+憲法の改正は他の法律よりも難しい→（[[こ|硬性]]）憲法
+＊日本は今まで一度も改正されたことがない
+<<赤|日本国は細かい法律は他の法律で決める／憲法>>
+`
+}
+];
+
+/* ============ 記述・一問一答 ============ */
+const DESC = [
+["p1","政治とは何か（プリントの流れで）","個人や団体の利害の対立を調整し、人々の権利の実現をはかること。そのために国家があり、一定のルール化（法律・道徳・常識・習慣）が必要になる。"],
+["p1","国家の3要素","領土・国民・主権（対外的な独立性）"],
+["p1","法律と、道徳・常識・習慣との違い","強制力があるかないか"],
+["p1","「法の不知は許さず」とは","罪を起こして法律を知らなくても許してはいけない、ということ。"],
+["p1","憲法は国のどんな法か","国の基本法であり、最高法規である。"],
+["p1","日本国憲法の3原則","国民主権・基本的人権の尊重・平和主義"],
+["p1","3原則はどこから来たか","ヨーロッパ。国王の権力は神によって授けられたという王権神授説と、人間は生まれながらに平等だという考え。"] ,
+["p1","王権神授説とは","国王の権力は神によって授けられたとする考え方。16世紀頃の絶対王政を支えた。"],
+["p1","社会契約説とは","17世紀、身分制社会を否定する考え方。ホッブズ・ルソー・ロックの3人が影響を与えた。"],
+["p1","近代民主政治の基本原理はどう成立したか","ピューリタン革命（1642〜49）・名誉革命（1688）・アメリカ独立革命（1775〜83）・フランス革命（1789〜99）などの市民革命を通して成立した。"],
+["p1","近代民主政治の基本原理 3つ","基本的人権の保障／人民主権の原則／権力分立の原則"],
+["p1","自然権とは","人間が生まれながらに持っている権利。個人の自由・平等。"],
+["p1","人民主権の原則の言い回し","「すべての政治権力は人民に存し、したがって人民に由来する」（バージニアの権利章典）"],
+["p1","権力分立の原則とは","政治権力を特定の人（機関）に集中させないこと。"],
+["p1","ロックが分けた権力","立法権と執行権"],
+["p1","モンテスキューが唱えたこと・著書","三権分立。著書は『法の精神』。"],
+["p2","ホッブズの自然権","各人が彼自身の自然、つまりその生命を維持するために、彼自身の欲するままにその力を用いる自由。"],
+["p2","ホッブズの自然状態","万人の万人に対する闘争。人間は本来平等で、それゆえに不信が生じ、不信から戦争が起こる。"],
+["p2","ホッブズの基本的な自然法","理性による一般法則で、「各人は平和を勝ちとろう為に努力すべし」。平和を実現するため、自然法に従って契約をむすぶ。"],
+["p2","ホッブズの第二の自然法","平和・自己防衛のために必要な場合、他人も同意するなら自然権を放棄すること。全ての人が共通に従う公共的権力が必要。"],
+["p2","ホッブズの第三の自然法","結ばれた契約は遵守し履行すべし"],
+["p2","ホッブズ：権利が保障されるために必要なこと","主権者にあらゆる力を譲り渡すこと（国家・主権者）。国家は本来自然権を保障するものだが、絶対的性格を持つ。"],
+["p2","ロックの生きたイギリスの変動","ピューリタン革命⇒王政復古⇒名誉革命と目まぐるしく変動した。"],
+["p2","ロックらが市民革命で求めたもの","経済活動の自由と議会制民主主義"],
+["p2","ロックの自然権","人間は自由平等であり、支配服従の関係に立つことなく、自由な労働と占有によって財産を取得する権利を持つ。"],
+["p2","ロックの自然状態","すべての人々が自然法に従っている調和的な世界。人間は自由平等な存在なので、権力と支配権は互恵的。"],
+["p2","ロックの自然法","他人の生命、健康、自由、財産に対して損傷を加えてはならない。"],
+["p3","ロックが社会契約を必要とした理由","自然状態では自然権が確実に保障されるとは限らないから。人々は私的な制裁・権利を放棄し、契約によりそれを公の権力に信託する（相互に委託すれば政治的社会としての国家が出現）。"],
+["p3","ロック：政治権力の根拠","一切の政治権力は人民の信託に基づく。政治的支配の正当性は人民の同意が根拠。"],
+["p3","ホッブズとロックの大きな違い","ロックは抵抗権・革命権を認めた。代表者の権力は信託されたもので無条件ではなく、人民の信託に反したら国民は自身の安全の保障のために覆す権利を持つ。"],
+["p3","ロックの哲学の立場","経験論（き：タブラ・ラサ）。すべての観念や知識は経験から生じ、近代科学の精神に通ずる。"],
+["p3","ルソーの自然権","素朴な自然人として生まれる権利（ありのままに）"],
+["p3","ルソーの自然状態","健康で自由で平等。しかし実際は財産・評判・名誉など私有意識にとらわれ、悲惨な支配隷従の関係にあった。"],
+["p3","ルソーの「文明状態」とは","自然状態の幸福と無邪気さを破壊している状態。"],
+["p3","ルソーの社会契約","人々が全員一致で自己の身体とあらゆる権利を一般意志の最高の指揮にゆだねること。すべての人がひとしく全面的に自己を共同体に没入させる。"],
+["p3","なぜ共同体の意志に従うことが自分の意志に従うことになるのか","自己と共同体は一体だから。"],
+["p3","特殊意志と全体意志","個人の利益の立場が特殊意志、その総和が全体意志。"],
+["p3","一般意志とは","人民の自らの意志であり人民主権。絶対的なもので代表できない。ルソーはイギリスの議会制民主主義を批判した。"],
+["p3","「一般意志のもと、人は〜に従う」","自ら書き入れた法"],
+["p4","明治憲法はなぜこのときに制定されたか","憲法は権力者を縛るものだから。明治維新は市民革命とは違い、将軍から天皇へ権力者が交代した。"],
+["p4","明治憲法制定の背景","自由民権運動の盛り上がり（国会開設・憲法制定）と、対外的に国家の形式を整え不平等条約の改正に必要だったこと。国民の中に民主的な考え方が広がる前に、天皇中心の制度を確立しておく狙いもあった。"],
+["p4","欽定憲法と民定憲法","天皇主権の欽定憲法は天皇が定める憲法。民定は国民が定める憲法。"],
+["p4","臣民の権利と法律の留保","臣民の権利は法律でいつでも制限できた（法律の留保）。"],
+["p4","天皇の統治権の内訳","立法＝議会の協賛／行政＝国務大臣の輔弼／司法＝裁判所は天皇の名において"],
+["p4","統帥権とは","天皇大権の一つで、軍隊を直接指揮することが出来る権限。"],
+["p4","明治憲法の評価","外見的に立憲主義。不完全ではあるが民主的内容を持っているとされ、評価は分かれる。"],
+["p4","統帥権独立問題とは","軍隊から直接命令されると軍機によって、政府はこれを止める事ができないこと。明治憲法下で民主国家への道（大正デモクラシー）から軍事国家へ進んだ。"],
+["p5","ポツダム宣言の受諾内容","軍事的勢力の除去（軍隊の解散・軍国主義の排除）、民主主義の復活と人権保障、国民の意思もとづく平和な政府。これらを受け入れて無条件降伏した。"],
+["p5","憲法改正の指示","連合国軍総司令部（GHQ）による憲法改正の指示。"],
+["p5","松本案とは","政府の憲法問題調査委員会が出した案。＊天皇主権・国体護持。GHQはこれを拒否した。"],
+["p5","マッカーサー草案とは","GHQが松本案を拒否して示した草案。明治憲法に変わってくれた。これをもとに日本政府案→議会で修正・可決→1946年11月3日公布、翌5月3日施行。"],
+["p5","日本国憲法押しつけ論とは","松本案ではなくマッカーサー草案によっていること。当時の国際情勢では拒否できない。"],
+["p5","日本国憲法の3原則","基本的人権の尊重／国民主権／平和主義"],
+["p5","象徴天皇制と国事行為","主権は自然権の考え方。天皇は象徴で、国政権は不保持、国事行為のみ行う。"],
+["p5","憲法改正の手続き（96条）","各議院の総議員の3分の2以上の賛成で国会が発議し、国民投票で過半数の賛成。"],
+["p5","硬性憲法とは","憲法の改正が他の法律よりも難しい憲法。日本国憲法は今まで一度も改正されたことがない。"],
+["p5","赤字メモ：日本国憲法の特色","日本国は細かい法律は他の法律で決める（憲法は大枠）。"]
+];
+
+/* ============ パース ============ */
+const TOK = /\[\[([^\]|]+)\|([^\]]+)\]\]|<<([^|>]+)\|([^>]+)>>/g;
+function parts(str){
+  const out=[]; let last=0, m; TOK.lastIndex=0;
+  while((m=TOK.exec(str))!==null){
+    if(m.index>last) out.push({t:"txt", v:str.slice(last,m.index)});
+    if(m[1]!==undefined) out.push({t:"bl", label:m[1].trim(), ans:m[2]});
+    else out.push({t:"note", color:m[3], v:m[4]});
+    last=TOK.lastIndex;
+  }
+  if(last<str.length) out.push({t:"txt", v:str.slice(last)});
+  return out;
+}
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+/* 各プリントをブロックに分解し、空欄一覧も作る */
+const DATA = PRINTS.map(p=>{
+  const lines = p.body.trim().split("\n").map(s=>s.trim()).filter(s=>s.length);
+  const blocks=[]; const blanks=[];
+  lines.forEach(line=>{
+    if(line.startsWith("## ")){ blocks.push({k:"h4", v:line.slice(3)}); return; }
+    if(line.startsWith("# ")){ blocks.push({k:"h3", v:line.slice(2)}); return; }
+    if(line.startsWith("> ")){ blocks.push({k:"small", v:line.slice(2)}); return; }
+    const ps = parts(line);
+    ps.forEach(x=>{ if(x.t==="bl") blanks.push({id:p.id+"-"+x.label, label:x.label, ans:x.ans, print:p.id, ctx:line}); });
+    blocks.push({k:"p", v:ps, raw:line});
+  });
+  return {...p, blocks, blanks};
+});
+const ALL_BLANKS = DATA.flatMap(d=>d.blanks);
+const ALL_DESC = DESC.map((d,i)=>({id:"q"+(i+1), print:d[0], q:d[1], ans:d[2]}));
+
+function itemsFor(unit){
+  const bs = ALL_BLANKS.filter(b=>unit==="all"||b.print===unit).map(b=>({
+    id:b.id, print:b.print, type:"blank", label:b.label, ans:b.ans, ctx:b.ctx
+  }));
+  const ds = unit==="all" ? ALL_DESC.slice() : ALL_DESC.filter(d=>d.print===unit);
+  // 記述を先、穴埋めを後に（全体はプリント順）
+  const order = {p1:1,p2:2,p3:3,p4:4,p5:5};
+  return ds.concat(bs).sort((a,b)=>order[a.print]-order[b.print]);
+}
+const TOTAL = itemsFor("all").length;
+
+/* ============ 状態 ============ */
+const K_WEAK="kk_r2_weak_v1", K_LAST="kk_r2_last_v1";
+let mark = {};
+try{ mark = JSON.parse(localStorage.getItem(K_WEAK)||"{}")||{}; }catch(e){ mark={}; }
+function saveMark(){ try{ localStorage.setItem(K_WEAK, JSON.stringify(mark)); }catch(e){} }
+
+let state = { mode:"fill", unit:"all", ffilter:"hideall", qfilter:"all", idx:0 };
+try{
+  const l = JSON.parse(localStorage.getItem(K_LAST)||"null");
+  if(l && l.unit) state.unit = l.unit;
+}catch(e){}
+function saveLast(){ try{ localStorage.setItem(K_LAST, JSON.stringify({unit:state.unit})); }catch(e){} }
+
+/* ============ 共通UI ============ */
+const main = document.getElementById("main");
+const unitsEl = document.getElementById("units");
+const tabFill = document.getElementById("tabFill");
+const tabQuiz = document.getElementById("tabQuiz");
+
+function unitLabel(u){ return u==="all" ? "全単元まとめ" : (DATA.find(d=>d.id===u).no+" "+DATA.find(d=>d.id===u).title); }
+
+function renderUnits(){
+  const opts = [{id:"all", t:"全単元まとめ"}].concat(DATA.map(d=>({id:d.id, t:d.no+" "+d.short})));
+  unitsEl.innerHTML = opts.map(o=>
+    `<button data-u="${o.id}" class="${state.unit===o.id?"on":""}">${esc(o.t)}</button>`
+  ).join("");
+  unitsEl.querySelectorAll("button").forEach(b=>{
+    b.onclick=()=>{
+      state.unit=b.dataset.u; state.idx=0; saveLast(); renderUnits(); render();
+      window.scrollTo({top:0,behavior:"smooth"});
+    };
+  });
+}
+
+function toast(msg){
+  const t=document.getElementById("toast");
+  t.textContent=msg; t.classList.add("show");
+  clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove("show"),1500);
+}
+
+/* ============ モード1：穴埋め ============ */
+function blankHTML(b, openIds){
+  const open = openIds.has(b.id);
+  return `<span class="bl ${open?"o":""}" data-id="${esc(b.id)}">`+
+    `<span class="lb">${esc(b.label)}</span>`+
+    (open? esc(b.ans) : "")+
+    `</span>`;
+}
+function noteHTML(color, v){
+  const cls = color==="青" ? "n-blue" : color==="赤" ? "n-red" : "n-pen";
+  const bits = v.split("／");
+  return bits.map(t=>`<span class="note ${cls}">${esc(t)}</span>`).join("");
+}
+function lineHTML(ps, openIds){
+  return ps.map(x=>{
+    if(x.t==="txt") return esc(x.v);
+    if(x.t==="bl") return blankHTML(x, openIds);
+    return noteHTML(x.color, x.v);
+  }).join("");
+}
+function renderFill(){
+  let openIds = new Set();
+  const allBlanks = DATA.filter(d=>state.unit==="all"||d.id===state.unit).flatMap(d=>d.blanks);
+  const f = state.ffilter;
+  if(f==="showall"){ openIds = new Set(allBlanks.map(b=>b.id)); }
+  else if(f==="weak"){ openIds = new Set(allBlanks.filter(b=>mark[b.id]!=="weak").map(b=>b.id)); }
+  else { openIds = new Set(); }
+  const hiddenCount = allBlanks.filter(b=>!openIds.has(b.id)).length;
+
+  let html = `
+  <div class="toolbar">
+    <button data-f="hideall" class="${state.ffilter==="hideall"?"on":""}">すべて隠す</button>
+    <button data-f="showall" class="${state.ffilter==="showall"?"on":""}">すべて表示</button>
+    <button data-f="weak" class="${state.ffilter==="weak"?"on":""}">苦手だけ隠す</button>
+  </div>
+  <p style="font-size:12px;color:var(--mt);margin:-4px 0 12px">
+    ${state.unit==="all"?"全5枚":unitLabel(state.unit)}　空欄 ${allBlanks.length}個中 ${hiddenCount}個を非表示　／　タップで答えを表示
+  </p>`;
+
+  DATA.filter(d=>state.unit==="all"||d.id===state.unit).forEach(p=>{
+    html += `<section class="print"><h2>プリント${p.no}　${esc(p.title)}</h2>`;
+    let inSec=false;
+    p.blocks.forEach(b=>{
+      if(b.k==="h3"){
+        if(inSec) html+="</div>";
+        html+=`<div class="sec"><h3>${esc(b.v)}</h3>`; inSec=true; return;
+      }
+      if(!inSec){ html+=`<div class="sec">`; inSec=true; }
+      if(b.k==="h4") html+=`<h4>${esc(b.v)}</h4>`;
+      else if(b.k==="small") html+=`<p class="ln small">${esc(b.v)}</p>`;
+      else html+=`<p class="ln">${lineHTML(b.v, openIds)}</p>`;
+    });
+    if(inSec) html+="</div>";
+    html+=`</section>`;
+  });
+  main.innerHTML = html;
+
+  main.querySelectorAll(".toolbar button").forEach(b=>{
+    b.onclick=()=>{ state.ffilter=b.dataset.f; renderFill(); };
+  });
+  main.querySelectorAll(".bl").forEach(el=>{
+    el.onclick=()=>{
+      const id = el.dataset.id;
+      const b = ALL_BLANKS.find(x=>x.id===id);
+      const nowOpen = !el.classList.contains("o");
+      el.classList.toggle("o", nowOpen);
+      el.innerHTML = `<span class="lb">${esc(b.label)}</span>` + (nowOpen ? esc(b.ans) : "");
+    };
+  });
+}
+
+/* ============ モード2：クイズ ============ */
+function queue(){
+  const all = itemsFor(state.unit);
+  return state.qfilter==="weak" ? all.filter(i=>mark[i.id]==="weak") : all;
+}
+function progressFor(unit){
+  const all = itemsFor(unit);
+  const ok = all.filter(i=>mark[i.id]==="ok").length;
+  return {ok, total:all.length, pct: all.length? Math.round(ok/all.length*100):0};
+}
+function ctxFor(item){
+  // 空欄問題の文脈：他の空欄は答えを入れて表示し、対象だけ伏せる
+  if(item.type!=="blank") return "";
+  const ps = parts(item.ctx);
+  let out="";
+  ps.forEach(x=>{
+    if(x.t==="txt") out+=esc(x.v);
+    else if(x.t==="note") out+=`<span class="note ${x.color==="青"?"n-blue":x.color==="赤"?"n-red":"n-pen"}">${esc(x.v)}</span>`;
+    else if(x.t==="bl"){
+      if(x.label.trim()===item.label) out+=`<b>（${esc(item.label)}）</b>`;
+      else out+=esc(x.ans);
+    }
+  });
+  return out;
+}
+function renderQuiz(){
+  const q = queue();
+  const prog = progressFor(state.unit);
+  if(state.idx>=q.length) state.idx=0;
+  const item = q[state.idx];
+
+  let html = `
+  <div class="qbar">
+    <div class="top"><span>覚えた ${prog.ok} / ${prog.total} 問</span><span><b style="color:var(--ok)">${prog.pct}%</b></span></div>
+    <div class="pg"><i style="width:${prog.pct}%"></i></div>
+  </div>
+  <div class="chips">
+    <button data-flt="all" class="${state.qfilter==="all"?"on":""}">すべて出題</button>
+    <button data-flt="weak" class="${state.qfilter==="weak"?"on":""}">苦手だけ復習（${itemsFor(state.unit).filter(i=>mark[i.id]==="weak").length}）</button>
+  </div>`;
+
+  if(!item){
+    html += `<div class="empty">
+      ${state.qfilter==="weak"
+        ? "苦手な問題はまだありません。<br>「すべて出題」で進めて、あいまいな問題に「もう一回（苦手）」を押すと、ここに集まります。"
+        : "問題がありません。"}
+      </div>`;
+    main.innerHTML=html;
+    bindQuizChips(); return;
+  }
+
+  const p = DATA.find(d=>d.id===item.print);
+  const isBlank = item.type==="blank";
+  const st = mark[item.id];
+
+  html += `
+  <div class="card" id="card">
+    <div class="tag">
+      <b>プリント${p.no}</b><span>${esc(p.title)}</span>
+      <span style="margin-left:auto">${isBlank?"穴埋め":"記述"}　${state.idx+1}/${q.length}</span>
+      ${st==="weak"?'<span style="color:var(--wa);font-weight:700">苦手</span>':""}
+    </div>
+    <div class="q">${ isBlank
+        ? `<div class="ctx">${ctxFor(item)}</div>`
+        : esc(item.q) }</div>
+    <div class="a" id="ans" style="display:none">${esc(item.ans)}</div>
+    <div class="hint" id="hint">タップして答えを見る</div>
+  </div>
+  <div class="answerBtns" id="ab" style="display:none">
+    <button class="good" data-r="ok">覚えた！</button>
+    <button class="bad" data-r="weak">もう一回（苦手）</button>
+  </div>
+  <div class="navBtns">
+    <button id="prev">← 前へ</button>
+    <button id="next">次へ →</button>
+  </div>`;
+  main.innerHTML=html;
+  bindQuizChips();
+
+  const card=document.getElementById("card");
+  const ans=document.getElementById("ans");
+  const hint=document.getElementById("hint");
+  const ab=document.getElementById("ab");
+  card.onclick=()=>{
+    if(ans.style.display==="none"){
+      ans.style.display="block"; hint.style.display="none"; ab.style.display="flex";
+    }else{
+      ans.style.display="none"; ab.style.display="none"; hint.style.display="block";
+    }
+  };
+  ab.querySelectorAll("button").forEach(b=>{
+    b.onclick=(e)=>{
+      e.stopPropagation();
+      mark[item.id]=b.dataset.r; saveMark();
+      toast(b.dataset.r==="ok" ? "覚えた！に登録" : "苦手に登録");
+      if(state.qfilter==="weak"){
+        // 苦手フィルター中は、リストから外れるので同じ位置の次の問題へ
+        const q2=queue();
+        if(q2.length===0){ state.idx=0; renderQuiz(); return; }
+        if(state.idx>=q2.length) state.idx=0;
+        renderQuiz(); return;
+      }
+      advance(1);
+    };
+  });
+  document.getElementById("prev").onclick=()=>{ state.idx=(state.idx-1+q.length)%q.length; renderQuiz(); };
+  document.getElementById("next").onclick=()=>{ advance(1); };
+  function advance(n){
+    const qq=queue();
+    state.idx=(state.idx+n)%qq.length;
+    renderQuiz();
+  }
+}
+function bindQuizChips(){
+  main.querySelectorAll(".chips button").forEach(b=>{
+    b.onclick=()=>{ state.qfilter=b.dataset.flt; state.idx=0; renderQuiz(); };
+  });
+}
+
+/* ============ 起動 ============ */
+function render(){
+  tabFill.classList.toggle("on", state.mode==="fill");
+  tabQuiz.classList.toggle("on", state.mode==="quiz");
+  if(state.mode==="fill") renderFill(); else renderQuiz();
+}
+tabFill.onclick=()=>{ state.mode="fill"; render(); };
+tabQuiz.onclick=()=>{ state.mode="quiz"; state.idx=0; render(); };
+renderUnits(); render();
+
+document.getElementById("resetBtn").onclick=()=>{
+  if(confirm("学習記録（覚えた・苦手）をすべて消しますか？")){
+    mark={}; saveMark(); toast("リセットしました"); render();
+  }
+};
+</script>
+</body>
+</html>
