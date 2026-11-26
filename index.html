@@ -114,6 +114,7 @@ hr.sep{border:0;border-top:1px dashed var(--ln);margin:10px 0 12px}
 .card .tag b{font-weight:700;color:var(--ac)}
 .card .q{font-size:16.5px;line-height:1.9;font-weight:600}
 .card .q .ctx{font-weight:400;color:var(--mt);font-size:14px}
+.card .q .ql{color:var(--red);font-weight:700;border-bottom:2px solid var(--red);padding:0 2px}
 .card .a{
   margin-top:16px;padding-top:14px;border-top:1px dashed var(--ln);
   color:var(--red);font-size:16px;line-height:1.85;font-weight:600;
@@ -565,13 +566,15 @@ function ctxFor(item){
   // 空欄問題の文脈：他の空欄は答えを入れて表示し、対象だけ伏せる
   if(item.type!=="blank") return "";
   const ps = parts(item.ctx);
-  let out="";
+  let out="", prev="";
   ps.forEach(x=>{
-    if(x.t==="txt") out+=esc(x.v);
+    if(x.t==="txt"){ out+=esc(x.v); if(x.v) prev=x.v.slice(-1); }
     else if(x.t==="note") out+=`<span class="note ${x.color==="青"?"n-blue":x.color==="赤"?"n-red":"n-pen"}">${esc(x.v)}</span>`;
     else if(x.t==="bl"){
-      if(x.label.trim()===item.label) out+=`<b>（${esc(item.label)}）</b>`;
-      else out+=esc(x.ans);
+      if(x.label.trim()===item.label){
+        out += (prev==="（"||prev==="〈") ? `<b class="ql">${esc(item.label)}</b>` : `<b class="ql">（${esc(item.label)}）</b>`;
+        prev="）";
+      } else { out+=esc(x.ans); prev=x.ans.slice(-1); }
     }
   });
   return out;
