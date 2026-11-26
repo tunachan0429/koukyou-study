@@ -83,7 +83,9 @@ hr.sep{border:0;border-top:1px dashed var(--ln);margin:10px 0 12px}
   border-bottom:1.5px dashed #cbb3b0;background:#fdf7f6;color:var(--mt);
   display:inline;
 }
-.bl .lb{font-size:.72em;vertical-align:super;letter-spacing:0}
+.bl .lb{font-size:.8em;letter-spacing:0}
+.bl:not(.o){display:inline-block;min-width:2.6em;text-align:center;padding:1px 8px;margin:0 1px;line-height:1.5}
+.note-sep{color:var(--mt);font-size:12px;margin:0 1px}
 .bl.o{
   background:var(--redbg);color:var(--red);border-bottom:1.5px solid var(--red);
   font-weight:700;color:var(--red);
@@ -489,7 +491,7 @@ function blankHTML(b, openIds){
 function noteHTML(color, v){
   const cls = color==="青" ? "n-blue" : color==="赤" ? "n-red" : "n-pen";
   const bits = v.split("／");
-  return bits.map(t=>`<span class="note ${cls}">${esc(t)}</span>`).join("");
+  return bits.map(t=>`<span class="note ${cls}">${esc(t)}</span>`).join('<span class="note-sep">／</span>');
 }
 function lineHTML(ps, openIds){
   return ps.map(x=>{
