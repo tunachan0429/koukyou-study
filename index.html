@@ -419,7 +419,7 @@ const DATA = PRINTS.map(p=>{
     if(line.startsWith("# ")){ blocks.push({k:"h3", v:line.slice(2)}); return; }
     if(line.startsWith("> ")){ blocks.push({k:"small", v:line.slice(2)}); return; }
     const ps = parts(line);
-    ps.forEach(x=>{ if(x.t==="bl") blanks.push({id:p.id+"-"+x.label, label:x.label, ans:x.ans, print:p.id, ctx:line}); });
+    ps.forEach(x=>{ if(x.t==="bl"){ x.id = p.id+"-"+x.label; blanks.push({id:x.id, label:x.label, ans:x.ans, print:p.id, ctx:line}); } });
     blocks.push({k:"p", v:ps, raw:line});
   });
   return {...p, blocks, blanks};
