@@ -34,15 +34,15 @@ header{
   padding:calc(8px + env(safe-area-inset-top)) 12px 0;
   border-bottom:1px solid var(--ln);
 }
-h1{font-size:15px;margin:0 0 8px;font-weight:700;letter-spacing:.01em;display:flex;align-items:center;gap:6px}
+h1{font-size:15px;margin:0 auto 8px;max-width:720px;font-weight:700;letter-spacing:.01em;display:flex;align-items:center;gap:6px}
 h1 .dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
-.tabs{display:flex;gap:6px;margin-bottom:8px}
+.tabs{display:flex;gap:6px;margin:0 auto 8px;max-width:720px}
 .tabs button{
   flex:1;padding:10px 4px;font-size:14px;font-weight:600;border-radius:10px;
   border:1px solid var(--ln);background:var(--sf);color:var(--tx);
 }
 .tabs button.on{background:var(--ac);border-color:var(--ac);color:#fff}
-.units{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.units{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;max-width:696px;margin:0 auto}
 .units::-webkit-scrollbar{display:none}
 .units button{
   flex:none;padding:7px 12px;font-size:13px;border-radius:99px;
